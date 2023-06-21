@@ -12,7 +12,6 @@ public class DialogueSystem : MonoBehaviour
         textArchitecture = new TextArchitecture(dialogueText);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

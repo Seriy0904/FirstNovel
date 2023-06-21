@@ -5,10 +5,10 @@ using System.IO;
 
 public class FileManager
 {
-    public static List<string> ReadTextFiles(string FilePath, bool includeBlacnkLines = true)
+    public static List<string> ReadTextFiles(string filePath, bool includeBlacnkLines = true)
     {
         if (!filePath.StartsWith('/'))
-            filePath = FilePath.root + filePath;
+            filePath = FilePaths.root + filePath;
         
         List<string> lines = new List<string>();
         try 
