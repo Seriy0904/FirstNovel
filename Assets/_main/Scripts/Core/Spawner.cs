@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     //
 
     // Start is called before the first frame update
+    private Dictionary<string, GameObject> existCharacters = new Dictionary<string, GameObject>(); 
     void Start()
     {
         spawnCharacter("xi");
@@ -25,10 +26,24 @@ public class Spawner : MonoBehaviour
         {
             case "xi":
                 {
-                    Debug.Log("Xi Jinpin");
-                    Instantiate(XiJinObject, transform.position, transform.rotation).transform.parent = CharactersScenePath.transform;
+                    var tempChar = Instantiate(XiJinObject, transform.position, transform.rotation);
+                    tempChar.transform.SetParent(CharactersScenePath.transform);
+                    existCharacters.TryAdd(nickName, tempChar);
                     break;
                 }
+        }
+    }
+    public bool getCharacter(string nickName, out GameObject characterOut)
+    {
+        if(existCharacters.TryGetValue(nickName, out GameObject value))
+        {
+            characterOut = value;
+            return true ;
+        }
+        else
+        {
+            characterOut = null;
+            return false;
         }
     }
 }
