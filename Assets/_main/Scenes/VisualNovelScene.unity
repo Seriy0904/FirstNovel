@@ -2671,6 +2671,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d85f4c06c2fc545aacdee2b86ae94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharactersScenePath: {fileID: 1948633551}
+  XiJinObject: {fileID: 9097858384771552195, guid: 82b6f26312b9fe142be57b657b64187c, type: 3}
 --- !u!1 &2134696776
 GameObject:
   m_ObjectHideFlags: 0

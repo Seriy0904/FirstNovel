@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     {
 
     }
+    //spawn character through nick name with switch case
     public void spawnCharacter(string nickName)
     {
         switch (nickName)
@@ -33,6 +34,7 @@ public class Spawner : MonoBehaviour
                 }
         }
     }
+    //get charatcer from hash map, if it doesn't exist return false
     public bool getCharacter(string nickName, out GameObject characterOut)
     {
         if(existCharacters.TryGetValue(nickName, out GameObject value))
