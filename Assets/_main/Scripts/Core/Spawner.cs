@@ -48,4 +48,8 @@ public class Spawner : MonoBehaviour
             return false;
         }
     }
+    public void moveCharacter(GameObject characterOut, float x, float y)
+    {
+        characterOut.transform.position = new Vector3(x, y, 0);
+    }
 }
