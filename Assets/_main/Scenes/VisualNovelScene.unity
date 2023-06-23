@@ -1797,6 +1797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: testingFiles.txt
+  dialogueSystem: {fileID: 1691564339}
+  fileName: {fileID: 4900000, guid: b086fe89873b178439686b51c8021d13, type: 3}
 --- !u!1 &1277509950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1585555405}
+  - component: {fileID: 1585555406}
   m_Layer: 5
   m_Name: Control - 6
   m_TagString: Untagged
@@ -2313,6 +2316,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1585555406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585555404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f639f38bf386c4ca5a48a7ef42e1db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textFiles: {fileID: 1200845813}
 --- !u!1 &1691564337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,6 +2374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1493952043}
+  dialogueName: {fileID: 1144682045}
 --- !u!1 &1716876108
 GameObject:
   m_ObjectHideFlags: 0
