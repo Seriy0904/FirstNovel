@@ -3,7 +3,9 @@ guid: e3d85f4c06c2fc545aacdee2b86ae94b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - CharactersScenePath: {instanceID: 0}
+  - XiJinObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

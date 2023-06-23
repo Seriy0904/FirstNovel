@@ -6,6 +6,8 @@ using System;
 public class TextFiles : MonoBehaviour
 {
     [SerializeField] private DialogueSystem dialogueSystem;
+    [SerializeField] private CharacterController characterController;
+
     [SerializeField] private TextAsset fileName;
     private List<string> readedLines;
     private int currentLine = 0;
@@ -30,6 +32,12 @@ public class TextFiles : MonoBehaviour
                 dialogueSystem.DialogueNametSet(arguments[0]);
                 dialogueSystem.DialogueTextSet(arguments[1]);
                 break;
+            case "move":
+                if (characterController.getCharacter(arguments[0], out GameObject selectedCharacter))
+                {
+                    characterController.moveCharacter(selectedCharacter, Screen.width/10f * short.Parse(arguments[1]) , Screen.height / 10f * short.Parse(arguments[2]));
+                }
+                break;
         }
         if (readedLines.Count<= currentLine+1)
         {
@@ -37,9 +45,16 @@ public class TextFiles : MonoBehaviour
             return;
         }
         currentLine += 1;
-        if (currentLineParsed.Length>2&& Convert.ToBoolean(currentLineParsed[2]))
+        try
         {
-            nextLineRun();
+            if (Convert.ToBoolean(currentLineParsed[2]))
+            {
+                nextLineRun();
+            }
+        }
+        catch (FormatException)
+        {
+
         }
     }
 }

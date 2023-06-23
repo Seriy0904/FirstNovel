@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     public GameObject CharactersScenePath;
     public GameObject XiJinObject;
@@ -50,6 +50,7 @@ public class Spawner : MonoBehaviour
     }
     public void moveCharacter(GameObject characterOut, float x, float y)
     {
+        Debug.Log(Screen.width);
         characterOut.transform.position = new Vector3(x, y, 0);
     }
 }
