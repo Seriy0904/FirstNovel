@@ -2064,10 +2064,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: All the text will be here
+  m_text: "\u042D\u0442\u043E \u0432\u043E\u043E\u0431\u0449\u0435 \u043A\u043B\u0430\u0441\u0441\u043D\u043E,
+    \u0431\u0440\u0430\u0442 xD"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 29ccd5c9dc7d39a4e96765acbf5e8820, type: 2}
-  m_sharedMaterial: {fileID: 5028542303723396940, guid: 29ccd5c9dc7d39a4e96765acbf5e8820, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7cd1ce175e03efe41ad958eaf2971325, type: 2}
+  m_sharedMaterial: {fileID: 1006806860649372599, guid: 7cd1ce175e03efe41ad958eaf2971325, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
