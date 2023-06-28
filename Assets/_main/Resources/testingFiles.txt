@@ -1,3 +1,0 @@
-say\(SASHA GEY\,YA LOX\)True
-say\(JALOL GEY\,ya hui\)False
-say\(Chris\, Мы смогли сделать такую хуйню, ура! Молодцы\)False
