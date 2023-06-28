@@ -25,19 +25,21 @@ public class CharacterController : MonoBehaviour
         if(existCharacters.ContainsKey(nickName)){
             return;
         }
+        CharacterObject tempChar;
+        var zeroPos = new Vector3(0.0f,0.0f,0.0f);
         switch (nickName)
         {
             case "xi":
                 {
-                    Debug.Log("Zero");
-                    var tempChar = Instantiate(XiJinObject, transform.position, transform.rotation);
-                    Debug.Log("First");
-                    tempChar.transform.SetParent(CharactersScenePath.transform);
-                    Debug.Log("Second");
-                    existCharacters.TryAdd(nickName, tempChar);
+                    tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
                     break;
                 }
+            default:
+                    tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
+                    break;
         }
+        tempChar.transform.SetParent(CharactersScenePath.transform);
+        existCharacters.TryAdd(nickName, tempChar);
     }
     //get charatcer from hash map, if it doesn't exist return false
     public bool getCharacter(string nickName, out CharacterObject characterOut)

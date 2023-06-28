@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSystem: {fileID: 1691564339}
   characterController: {fileID: 1995173159}
-  fileName: {fileID: 4900000, guid: b086fe89873b178439686b51c8021d13, type: 3}
+  fileName: testingFiles.txt
 --- !u!1 &1277509950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,7 +2689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharactersScenePath: {fileID: 1948633551}
-  XiJinObject: {fileID: 7802080525182752670, guid: 82b6f26312b9fe142be57b657b64187c, type: 3}
+  XiJinObject: {fileID: 5113330078735758311, guid: 82b6f26312b9fe142be57b657b64187c, type: 3}
 --- !u!1 &2134696776
 GameObject:
   m_ObjectHideFlags: 0
