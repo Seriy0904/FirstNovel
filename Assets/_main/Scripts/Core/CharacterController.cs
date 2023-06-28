@@ -5,14 +5,13 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public GameObject CharactersScenePath;
-    public GameObject XiJinObject;
+    public CharacterObject XiJinObject;
     //
 
     // Start is called before the first frame update
-    private Dictionary<string, GameObject> existCharacters = new Dictionary<string, GameObject>(); 
+    private Dictionary<string, CharacterObject> existCharacters = new Dictionary<string, CharacterObject>(); 
     void Start()
     {
-        spawnCharacter("xi");
     }
 
     // Update is called once per frame
@@ -23,21 +22,27 @@ public class CharacterController : MonoBehaviour
     //spawn character through nick name with switch case
     public void spawnCharacter(string nickName)
     {
+        if(existCharacters.ContainsKey(nickName)){
+            return;
+        }
         switch (nickName)
         {
             case "xi":
                 {
+                    Debug.Log("Zero");
                     var tempChar = Instantiate(XiJinObject, transform.position, transform.rotation);
+                    Debug.Log("First");
                     tempChar.transform.SetParent(CharactersScenePath.transform);
+                    Debug.Log("Second");
                     existCharacters.TryAdd(nickName, tempChar);
                     break;
                 }
         }
     }
     //get charatcer from hash map, if it doesn't exist return false
-    public bool getCharacter(string nickName, out GameObject characterOut)
+    public bool getCharacter(string nickName, out CharacterObject characterOut)
     {
-        if(existCharacters.TryGetValue(nickName, out GameObject value))
+        if(existCharacters.TryGetValue(nickName, out CharacterObject value))
         {
             characterOut = value;
             return true ;
@@ -48,9 +53,8 @@ public class CharacterController : MonoBehaviour
             return false;
         }
     }
-    public void moveCharacter(GameObject characterOut, float x, float y)
+    public void moveCharacter(CharacterObject characterOut, short x, short y)
     {
-        Debug.Log(Screen.width);
-        characterOut.transform.position = new Vector3(x, y, 0);
+        characterOut.moveCharacter(x,y);
     }
 }

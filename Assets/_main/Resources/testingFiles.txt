@@ -1,4 +1,5 @@
 say\(SASHA GEY\,YA LOX\)True
-move\(xi\,2\,4\)
+spawn\(xi\)False
+move\(xi\,-5\,-5\)
 say\(JALOL GEY\,ya hui\)False
 say\(Chris\, Мы смогли сделать такую хуйню, ура! Молодцы\)False

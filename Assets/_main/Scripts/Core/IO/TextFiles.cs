@@ -32,10 +32,15 @@ public class TextFiles : MonoBehaviour
                 dialogueSystem.DialogueNametSet(arguments[0]);
                 dialogueSystem.DialogueTextSet(arguments[1]);
                 break;
+            case "spawn":
+            {
+                characterController.spawnCharacter(arguments[0]);
+                break;
+            }
             case "move":
-                if (characterController.getCharacter(arguments[0], out GameObject selectedCharacter))
+                if (characterController.getCharacter(arguments[0], out CharacterObject selectedCharacter))
                 {
-                    characterController.moveCharacter(selectedCharacter, Screen.width/10f * short.Parse(arguments[1]) , Screen.height / 10f * short.Parse(arguments[2]));
+                    characterController.moveCharacter(selectedCharacter, short.Parse(arguments[1]) , short.Parse(arguments[2]));
                 }
                 break;
         }
