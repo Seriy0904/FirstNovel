@@ -754,7 +754,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 309.03522
+  orthographic size: 310.54398
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1576,8 +1576,6 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 29ccd5c9dc7d39a4e96765acbf5e8820, type: 2}
   m_sharedMaterial: {fileID: 5028542303723396940, guid: 29ccd5c9dc7d39a4e96765acbf5e8820, type: 2}
-  m_fontAsset: {fileID: 11400000, guid: 5dd35083988c370418af3d794c6f851c, type: 2}
-  m_sharedMaterial: {fileID: -5835801253758535279, guid: 5dd35083988c370418af3d794c6f851c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1688,8 +1686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1159, y: 618}
+  m_AnchoredPosition: {x: -0.7685, y: 0.7685}
+  m_SizeDelta: {x: 1289.6418, y: 622.6108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176124350
 MonoBehaviour:
@@ -2073,8 +2071,6 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cd1ce175e03efe41ad958eaf2971325, type: 2}
   m_sharedMaterial: {fileID: 1006806860649372599, guid: 7cd1ce175e03efe41ad958eaf2971325, type: 2}
-  m_fontAsset: {fileID: 11400000, guid: 5dd35083988c370418af3d794c6f851c, type: 2}
-  m_sharedMaterial: {fileID: -5835801253758535279, guid: 5dd35083988c370418af3d794c6f851c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
