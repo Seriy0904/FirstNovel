@@ -7,6 +7,7 @@ public class TextFiles : MonoBehaviour
 {
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] private AnswersMainContainer answersController;
 
     [SerializeField] private String fileName;
     private List<string> readedLines;
@@ -43,9 +44,28 @@ public class TextFiles : MonoBehaviour
     }
     private void readMainLine()
     {
-        string[] currentLineParsed = readedLines[currentLine].Split(new string[] { "\\(", "\\)" }, StringSplitOptions.None);
+        int firstBracket = 0;
+        int secondBracket =0;
+        for (int i=0;i<readedLines[currentLine].Length; i++){
+            if(readedLines[currentLine][i] == '('){
+                firstBracket = i;
+                break;
+            }
+        }
+        for (int i=readedLines[currentLine].Length-1;i>0; i--){
+            if(readedLines[currentLine][i] == ')'){
+                secondBracket = i;
+                break;
+            }
+        }
+        string[] currentLineParsed = new string[]{};
+        if(firstBracket>0&&secondBracket>0){
+            currentLineParsed = new string[]{readedLines[currentLine].Substring(0,firstBracket),readedLines[currentLine].Substring(firstBracket+1,secondBracket-firstBracket-1),secondBracket==readedLines[currentLine].Length-1 ? "False" : readedLines[currentLine].Substring(secondBracket)};
+        }else{
+            currentLineParsed = new string[]{"NULL", "NULL","False"};
+        }
         string currentLineCommand = currentLineParsed[0];
-        string[] arguments = currentLineParsed[1].Split("\\,");
+        string[] arguments = (currentLineParsed.Length>1) ? currentLineParsed[1].Split("\\,") : new string[] {};
         switch (currentLineCommand) {
             case "say":
                 dialogueSystem.DialogueNametSet(arguments[0]);
@@ -72,6 +92,13 @@ public class TextFiles : MonoBehaviour
                 fileName = arguments[0];
                 nextLineRun();
                 return;
+            case "answers":
+                if(arguments.Length%2==0)
+                {
+                    for (int i=0; i<arguments.Length; i+=2){
+                        answersController.addVariant(arguments[i], arguments[i+1]);
+                    }
+                }
                 break;
         }
         if (readedLines.Count<= currentLine+1)
@@ -82,7 +109,7 @@ public class TextFiles : MonoBehaviour
         currentLine += 1;
         try
         {
-            if (Convert.ToBoolean(currentLineParsed[2]))
+            if (Convert.ToBoolean(currentLineParsed[2].ToLower()))
             {
                 nextLineRun();
             }
@@ -122,7 +149,7 @@ public class TextFiles : MonoBehaviour
         currentAdvancedLine += 1;
         try
         {
-            if (Convert.ToBoolean(currentLineParsed[2]))
+            if (Convert.ToBoolean(currentLineParsed[2].ToLower()))
             {
                 readAdvancedLine();
             }

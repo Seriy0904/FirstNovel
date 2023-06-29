@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
     public GameObject CharactersScenePath;
     public CharacterObject XiJinObject;
     //
-
+    
     // Start is called before the first frame update
     private Dictionary<string, CharacterObject> existCharacters = new Dictionary<string, CharacterObject>(); 
     void Start()

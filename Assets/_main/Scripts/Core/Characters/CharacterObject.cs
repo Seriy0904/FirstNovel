@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterObject : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int characterSpeed = 200;
+    private int characterSpeed = 250;
     private Vector3 target = new Vector3(0.0f,0.0f,0.0f);
     void Start()
     {
