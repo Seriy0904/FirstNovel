@@ -3,4 +3,4 @@ move(xi\,-5\,-5)
 say(Chris\, Мы смогли сделать такую хуйню, ура! Молодцы)False
 branch(first_branch.txt)
 say(Chris\, после бренча робит)False
-answers(Первая ветка\,branch1.txt\,Вторая ветка\,branch2.txt)
+answers(Первая ветка\,answer1.txt\,Вторая ветка\,answer2.txt)

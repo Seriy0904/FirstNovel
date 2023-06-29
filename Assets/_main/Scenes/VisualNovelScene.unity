@@ -472,13 +472,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Top: -8
+    m_Bottom: -8
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -8
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -495,6 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3084ecf6b079b6b4e99e97c9b6fa4c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnswerDefault: {fileID: 199392777806027415, guid: aaa8e307abc74ef4095a43152f00890d, type: 3}
+  textFiles: {fileID: 1200845813}
+  LineSeparator: {fileID: 7329739721372075072, guid: bb72687fd29085f4696892a25db52606, type: 3}
 --- !u!1 &344535383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +1929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSystem: {fileID: 1691564339}
   characterController: {fileID: 1995173159}
+  answersController: {fileID: 343404456}
   fileName: testingFiles.txt
 --- !u!1 &1277509950
 GameObject:

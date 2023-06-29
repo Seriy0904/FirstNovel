@@ -15,6 +15,7 @@ public class TextFiles : MonoBehaviour
     private int currentLine = 0;
     private int currentAdvancedLine = 0;
     private bool advancedBranch = false;
+    private bool skipIsWork = true;
     private string branchName;
     // Start is called before the first frame update
     void Start()
@@ -32,15 +33,22 @@ public class TextFiles : MonoBehaviour
         readedAdvancedLines = FileManager.ReadTextFiles(branchName, false);
         yield return null;
     }
+    public void changeBranch(string newBranch){
+        skipIsWork = true;
+        fileName = newBranch;
+        StartCoroutine(ReadMain());
+        currentLine = 0;
+        nextLineRun();
+    }
     public void nextLineRun()
     {
-        // try
+        if(skipIsWork){
             if(!advancedBranch){
                 readMainLine();
             }else{
                 readAdvancedLine();
             }
-        // }catch(e:E)
+        }
     }
     private void readMainLine()
     {
@@ -87,16 +95,17 @@ public class TextFiles : MonoBehaviour
                 advancedBranch = true;
                 break;
             case "change_branch":
-                StartCoroutine(ReadMain());
-                currentLine = 0;
-                fileName = arguments[0];
-                nextLineRun();
+                changeBranch(arguments[0]);
                 return;
             case "answers":
+                skipIsWork = false;
                 if(arguments.Length%2==0)
                 {
                     for (int i=0; i<arguments.Length; i+=2){
                         answersController.addVariant(arguments[i], arguments[i+1]);
+                        if(i!=arguments.Length-2){
+                            answersController.addSeparator();
+                        }
                     }
                 }
                 break;
