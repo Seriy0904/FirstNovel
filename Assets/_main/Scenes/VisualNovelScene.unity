@@ -2978,6 +2978,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharactersScenePath: {fileID: 1948633551}
   XiJinObject: {fileID: 5113330078735758311, guid: 82b6f26312b9fe142be57b657b64187c, type: 3}
+  MainPersonObject: {fileID: 0}
+  RijiyObject: {fileID: 0}
 --- !u!1 &2134696776
 GameObject:
   m_ObjectHideFlags: 0
