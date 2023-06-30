@@ -36,9 +36,6 @@ public class CharacterController : MonoBehaviour
                     tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
                     break;
                 }
-            default:
-                    tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
-                    break;
             case "main":
                 {
                     tempChar = Instantiate(MainPersonObject, zeroPos, transform.rotation);
@@ -49,6 +46,10 @@ public class CharacterController : MonoBehaviour
                     tempChar = Instantiate(RijiyObject, zeroPos, transform.rotation);
                     break;
                 }
+            default:
+                    tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
+                    break;
+            
         }
         tempChar.transform.SetParent(CharactersScenePath.transform);
         existCharacters.TryAdd(nickName, tempChar);

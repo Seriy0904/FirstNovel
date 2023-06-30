@@ -1,2 +1,4 @@
 say(Chris\, Епты ветка 1 после ансвер)False
 say(FF\, точно робит)False
+spawn(rijiy)
+move(rijiy\,4\,4)

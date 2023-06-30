@@ -1,2 +1,3 @@
 say(Chris\, Епты ветка 2 после ансвер)False
-move(main\,+4\,-4)
+spawn(main)
+move(main\,4\,4)
