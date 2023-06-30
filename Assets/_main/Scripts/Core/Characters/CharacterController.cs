@@ -72,4 +72,7 @@ public class CharacterController : MonoBehaviour
     {
         characterOut.moveCharacter(x,y);
     }
+    public void moveInstantCharacter(CharacterObject characterOut, short x, short y){
+        characterOut.gameObject.transform.position =  new Vector3(Screen.height/10f*x,Screen.width/10f*y,0.0);
+    }
 }
