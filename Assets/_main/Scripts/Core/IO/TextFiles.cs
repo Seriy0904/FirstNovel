@@ -98,7 +98,7 @@ public class TextFiles : MonoBehaviour
             case "teleport":
                 if (characterController.getCharacter(arguments[0], out CharacterObject instantMovingCharacter))
                 {
-                    characterController.moveInstantCharacter(smoothMovingCharacter, short.Parse(arguments[1]) , short.Parse(arguments[2]));
+                    characterController.moveInstantCharacter(instantMovingCharacter, short.Parse(arguments[1]) , short.Parse(arguments[2]));
                 }
                 break;
             case "branch":
