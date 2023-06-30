@@ -6,6 +6,8 @@ public class CharacterController : MonoBehaviour
 {
     public GameObject CharactersScenePath;
     public CharacterObject XiJinObject;
+    public CharacterObject MainPersonObject;
+    public CharacterObject RijiyObject;
     //
     
     // Start is called before the first frame update
@@ -37,6 +39,16 @@ public class CharacterController : MonoBehaviour
             default:
                     tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
                     break;
+            case "main":
+                {
+                    tempChar = Instantiate(MainPersonObject, zeroPos, transform.rotation);
+                    break;
+                }
+            case "rijiy":
+                {
+                    tempChar = Instantiate(RijiyObject, zeroPos, transform.rotation);
+                    break;
+                }
         }
         tempChar.transform.SetParent(CharactersScenePath.transform);
         existCharacters.TryAdd(nickName, tempChar);
