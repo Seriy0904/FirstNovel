@@ -16,7 +16,7 @@ public class CharacterObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(target == transform.position){
+        if(target != transform.position){
             transform.position = Vector3.MoveTowards(transform.position,target,characterSpeed*Time.deltaTime);
         }
     }
@@ -25,7 +25,7 @@ public class CharacterObject : MonoBehaviour
         target.y = Screen.height/10f * y;
     }
     public void instantMoveCharacter(short x, short y){
-        transform.position = new Vector3(Screen.width/10f*x,Screen.height/10f*y,0.0);
+        transform.position = new Vector3(Screen.height/10f*x,Screen.width/10f*y,0.0f);
         target.x =Screen.width/10f *x;
         target.y = Screen.height/10f * y;
     }

@@ -1,3 +1,3 @@
 say(Chris\, Епты ветка 2 после ансвер)False
 spawn(main)
-move(main\,4\,4)
+teleport(main\,4\,4)
