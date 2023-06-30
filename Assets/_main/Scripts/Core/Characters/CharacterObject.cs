@@ -25,7 +25,7 @@ public class CharacterObject : MonoBehaviour
         target.y = Screen.height/10f * y;
     }
     public void instantMoveCharacter(short x, short y){
-        transform.position = new Vector3(Screen.height/10f*x,Screen.width/10f*y,0.0);
+        transform.position = new Vector3(Screen.width/10f*x,Screen.height/10f*y,0.0);
         target.x =Screen.width/10f *x;
         target.y = Screen.height/10f * y;
     }
