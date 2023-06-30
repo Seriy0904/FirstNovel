@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CharacterObject : MonoBehaviour
@@ -20,5 +21,8 @@ public class CharacterObject : MonoBehaviour
     public void moveCharacter(short x, short y){
         target.x =Screen.width/10f *x;
         target.y = Screen.height/10f * y;
+    }
+    public void changeSprite(){
+        Image childImage = gameObject.GetComponentInChildren<Image>();
     }
 }
