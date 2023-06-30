@@ -6,6 +6,8 @@ public class CharacterController : MonoBehaviour
 {
     public GameObject CharactersScenePath;
     public CharacterObject XiJinObject;
+    public CharacterObject MainPersonObject;
+    public CharacterObject RijiyObject;
     //
 
     // Start is called before the first frame update
@@ -37,6 +39,22 @@ public class CharacterController : MonoBehaviour
                     existCharacters.TryAdd(nickName, tempChar);
                     break;
                 }
+<<<<<<< Updated upstream:Assets/_main/Scripts/Core/CharacterController.cs
+=======
+            default:
+                    tempChar = Instantiate(XiJinObject, zeroPos, transform.rotation);
+                    break;
+            case "main":
+                {
+                    tempChar = Instantiate(MainPersonObject, zeroPos, transform.rotation);
+                    break;
+                }
+            case "rijiy":
+                {
+                    tempChar = Instantiate(RijiyObject, zeroPos, transform.rotation);
+                    break;
+                }
+>>>>>>> Stashed changes:Assets/_main/Scripts/Core/Characters/CharacterController.cs
         }
     }
     //get charatcer from hash map, if it doesn't exist return false
