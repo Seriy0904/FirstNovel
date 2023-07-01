@@ -7,9 +7,9 @@ public class CharacterObject : MonoBehaviour
 {
     //Emotions fields
     [SerializeField] public Sprite defaultSprite;
-    [SerializeField] public Sprite emotionFirst;// TODO(PLEASE, RENAME THESE FIELDS)
-    [SerializeField] public Sprite emotionSecond;
-    [SerializeField] public Sprite emotionThird;
+    [SerializeField] public Sprite cuteSmile;
+    [SerializeField] public Sprite hardAngry;
+    [SerializeField] public Sprite lightAngry;
 
     private int characterSpeed = 250;
     private float maxAndMinPos = 5f;
@@ -36,12 +36,15 @@ public class CharacterObject : MonoBehaviour
     public void changeSprite(string spriteName){
         Image childImage = gameObject.GetComponentInChildren<Image>();
         switch(spriteName){
-            case "firstEmotion"://TODO(RENAME AND ADD "CASES")
+            case "cuteSmile":
                 Debug.Log("WORKS");
                 childImage.sprite = emotionFirst;
                 break;
-            case "secondEmotion"://TODO(RENAME AND ADD "CASES")
+            case "hardAngry":
                 childImage.sprite = emotionSecond;
+                break;
+            case "lightAngry":
+                childImage.sprite = emotionThird;
                 break;
         }
     }
