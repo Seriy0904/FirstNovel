@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class CharacterObject : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Emotions fields
+    [SerializeField] public Sprite defaultSprite;
+    [SerializeField] public Sprite emotionFirst;// TODO(PLEASE, RENAME THESE FIELDS)
+    [SerializeField] public Sprite emotionSecond;
+    [SerializeField] public Sprite emotionThird;
+
     private int characterSpeed = 250;
     private float maxAndMinPos = 5f;
     private Vector3 target = new Vector3(0.0f,0.0f,0.0f);
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -29,7 +33,16 @@ public class CharacterObject : MonoBehaviour
         transform.position = new Vector3(Screen.width/(maxAndMinPos*2)*x,Screen.height/(maxAndMinPos*2)*y,0.0f);
         target = transform.position;
     }
-    public void changeSprite(){
+    public void changeSprite(string spriteName){
         Image childImage = gameObject.GetComponentInChildren<Image>();
+        switch(spriteName){
+            case "firstEmotion"://TODO(RENAME AND ADD "CASES")
+                Debug.Log("WORKS");
+                childImage.sprite = emotionFirst;
+                break;
+            case "secondEmotion"://TODO(RENAME AND ADD "CASES")
+                childImage.sprite = emotionSecond;
+                break;
+        }
     }
 }

@@ -75,4 +75,7 @@ public class CharacterController : MonoBehaviour
     public void moveInstantCharacter(CharacterObject characterOut, short x, short y){
         characterOut.instantMoveCharacter(x,y);
     }
+    public void changeCharacterSprite(CharacterObject characterOut, string spriteName){
+        characterOut.changeSprite(spriteName);
+    }
 }

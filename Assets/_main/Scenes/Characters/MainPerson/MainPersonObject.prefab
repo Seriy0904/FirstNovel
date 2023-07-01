@@ -50,6 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abae86c0597aaa4a888c6e202d010d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: fb2e7d2f50ebea7419654e45fcd212b9, type: 3}
+  emotionFirst: {fileID: 21300000, guid: b7584ab783a2bbb42889675aade91912, type: 3}
+  emotionSecond: {fileID: 21300000, guid: c29a833a535f02946b8b5d01425bb576, type: 3}
+  emotionThird: {fileID: 21300000, guid: fc5602aa3327c874ebbcd08ecf03e373, type: 3}
 --- !u!1 &4885830965286686627
 GameObject:
   m_ObjectHideFlags: 0

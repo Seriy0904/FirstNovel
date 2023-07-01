@@ -128,6 +128,12 @@ public class TextFiles : MonoBehaviour
                     }
                 }
                 break;
+            case "sprite":
+                if (characterController.getCharacter(arguments[0], out CharacterObject cahngeSpriteCharacter))
+                {
+                    characterController.changeCharacterSprite(cahngeSpriteCharacter, arguments[1]);
+                }
+                break;
         }
         if (privateReadedLines.Count<= privateCurrentLine+1)
         {

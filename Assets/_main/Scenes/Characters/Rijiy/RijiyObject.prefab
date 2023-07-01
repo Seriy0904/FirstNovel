@@ -126,3 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abae86c0597aaa4a888c6e202d010d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 14f9a38248645a84c98081d66e5fa604, type: 3}
+  emotionFirst: {fileID: 21300000, guid: 108ebcb92d263c84595ff3b04c835a82, type: 3}
+  emotionSecond: {fileID: 21300000, guid: aa1ac4e39e04d1b4f885e029a35fa7d2, type: 3}
+  emotionThird: {fileID: 21300000, guid: 062edf0777daba44a8a0afe028bd5059, type: 3}

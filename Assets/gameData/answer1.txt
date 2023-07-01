@@ -1,4 +1,5 @@
 say(Chris\, Епты ветка 1 после ансвер)False
 say(FF\, точно робит)False
 spawn(rijiy)True
-teleport(rijiy\,-5\,-5)
+teleport(rijiy\,0\,0)
+sprite(rijiy\,secondEmotion)
