@@ -80,7 +80,7 @@ public class TextFiles : MonoBehaviour
             currentLineParsed = new string[]{"NULL", "NULL","False"};
         }
         string currentLineCommand = currentLineParsed[0];
-        string[] arguments = (currentLineParsed.Length>1) ? currentLineParsed[1].Split("\\,") : new string[] {};
+        string[] arguments = (currentLineParsed.Length>1) ? currentLineParsed[1].Split("|") : new string[] {};
         switch (currentLineCommand) {
             case "say":
                 dialogueSystem.DialogueNametSet(arguments[0]);
