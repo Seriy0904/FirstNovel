@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class CharacterObject : MonoBehaviour
 {
-    //Emotions fields
-    [SerializeField] public Sprite defaultSprite;
     [SerializeField] public Sprite cuteSmile;
     [SerializeField] public Sprite hardAngry;
+    [SerializeField] public Sprite laugh;
     [SerializeField] public Sprite lightAngry;
+    [SerializeField] public Sprite normal;
     [SerializeField] public Sprite sad;
+    [SerializeField] public Sprite smile;
     [SerializeField] public Sprite smrink;
+    [SerializeField] public Sprite stoneFace;
     [SerializeField] public Sprite suprised;
 
     private int characterSpeed = 250;
@@ -37,23 +39,34 @@ public class CharacterObject : MonoBehaviour
         target = transform.position;
     }
     public void changeSprite(string spriteName){
-        Image childImage = gameObject.GetComponentInChildren<Image>();
+        Image childImage = gameObject.transform.GetChild(2).GetComponent<Image>();
         switch(spriteName){
             case "cuteSmile":
-                Debug.Log("WORKS");
                 childImage.sprite = cuteSmile;
                 break;
             case "hardAngry":
                 childImage.sprite = hardAngry;
                 break;
+            case "laugh":
+                childImage.sprite = laugh;
+                break;
             case "lightAngry":
                 childImage.sprite = lightAngry;
+                break;
+            case "normal":
+                childImage.sprite = normal;
                 break;
             case "sad":
                 childImage.sprite = sad;
                 break;
+            case "smile":
+                childImage.sprite = smile;
+                break;
             case "smrink":
                 childImage.sprite = smrink;
+                break;
+            case "stoneFace":
+                childImage.sprite = stoneFace;
                 break;
             case "suprised":
                 childImage.sprite = suprised;
