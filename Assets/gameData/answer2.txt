@@ -1,4 +1,1 @@
 say(Chris| Епты ветка 2 после ансвер)False
-spawn(main)
-teleport(main|2|0)
-sprite(main|secondEmotion)

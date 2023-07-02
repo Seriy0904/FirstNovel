@@ -10,6 +10,9 @@ public class CharacterObject : MonoBehaviour
     [SerializeField] public Sprite cuteSmile;
     [SerializeField] public Sprite hardAngry;
     [SerializeField] public Sprite lightAngry;
+    [SerializeField] public Sprite sad;
+    [SerializeField] public Sprite smrink;
+    [SerializeField] public Sprite suprised;
 
     private int characterSpeed = 250;
     private float maxAndMinPos = 5f;
@@ -38,13 +41,22 @@ public class CharacterObject : MonoBehaviour
         switch(spriteName){
             case "cuteSmile":
                 Debug.Log("WORKS");
-                childImage.sprite = emotionFirst;
+                childImage.sprite = cuteSmile;
                 break;
             case "hardAngry":
-                childImage.sprite = emotionSecond;
+                childImage.sprite = hardAngry;
                 break;
             case "lightAngry":
-                childImage.sprite = emotionThird;
+                childImage.sprite = lightAngry;
+                break;
+            case "sad":
+                childImage.sprite = sad;
+                break;
+            case "smrink":
+                childImage.sprite = smrink;
+                break;
+            case "suprised":
+                childImage.sprite = suprised;
                 break;
         }
     }

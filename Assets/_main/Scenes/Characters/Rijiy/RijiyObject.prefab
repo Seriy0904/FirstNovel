@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSprite: {fileID: 21300000, guid: 14f9a38248645a84c98081d66e5fa604, type: 3}
-  emotionFirst: {fileID: 21300000, guid: 108ebcb92d263c84595ff3b04c835a82, type: 3}
-  emotionSecond: {fileID: 21300000, guid: aa1ac4e39e04d1b4f885e029a35fa7d2, type: 3}
-  emotionThird: {fileID: 21300000, guid: 062edf0777daba44a8a0afe028bd5059, type: 3}
+  cuteSmile: {fileID: 21300000, guid: 108ebcb92d263c84595ff3b04c835a82, type: 3}
+  hardAngry: {fileID: 21300000, guid: aa1ac4e39e04d1b4f885e029a35fa7d2, type: 3}
+  lightAngry: {fileID: 21300000, guid: 062edf0777daba44a8a0afe028bd5059, type: 3}
+  sad: {fileID: 21300000, guid: 3d764c0c4a59a504b89bed6fb4051f69, type: 3}
+  smrink: {fileID: 21300000, guid: 66d8709ee69eb3640a7d42acaa7fe150, type: 3}
+  suprised: {fileID: 21300000, guid: 8a85e8ea6b155704b96eb3a1881e8b9b, type: 3}

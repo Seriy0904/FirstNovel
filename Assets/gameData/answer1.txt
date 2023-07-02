@@ -1,5 +1,2 @@
 say(Chris| Епты ветка 1 после ансвер)False
 say(FF| точно робит)False
-spawn(rijiy)
-teleport(rijiy|-4|-4)
-sprite(rijiy|secondEmotion)
