@@ -15,6 +15,7 @@ public class CharacterObject : MonoBehaviour
     [SerializeField] public Sprite smrink;
     [SerializeField] public Sprite stoneFace;
     [SerializeField] public Sprite suprised;
+    [SerializeField] public Sprite BlueTShirt;
 
     private int characterSpeed = 250;
     private float maxAndMinPos = 5f;
@@ -38,7 +39,7 @@ public class CharacterObject : MonoBehaviour
         transform.position = new Vector3(Screen.width/(maxAndMinPos*2)*x,Screen.height/(maxAndMinPos*2)*y,0.0f);
         target = transform.position;
     }
-    public void changeSprite(string spriteName){
+    public void changeEmotionsSprite(string spriteName){
         Image childImage = gameObject.transform.GetChild(2).GetComponent<Image>();
         switch(spriteName){
             case "cuteSmile":
@@ -71,6 +72,20 @@ public class CharacterObject : MonoBehaviour
             case "suprised":
                 childImage.sprite = suprised;
                 break;
+        }}
+
+    public void changeOutFitSprite(string spriteName){
+        Image childImage2s = gameObject.transform.GetChild(4).GetComponent<Image>();
+        switch(spriteName){
+            case "BlueTShirt":
+            childImage2s.sprite = BlueTShirt;
+            break;
+
+            }
+
+            
+        
         }
-    }
 }
+
+

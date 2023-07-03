@@ -4,6 +4,7 @@ say(Chris| Мы смогли сделать такую хуйню, ура! Мо�
 branch(first_branch.txt)
 say(Chris| после бренча робит)False
 spawn(main)
+outfit(main|BlueTShirt)
 teleport(main|2|0)
 sprite(main|sad)
 sprite(main|hardAngry)

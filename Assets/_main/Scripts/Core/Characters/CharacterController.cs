@@ -76,6 +76,9 @@ public class CharacterController : MonoBehaviour
         characterOut.instantMoveCharacter(x,y);
     }
     public void changeCharacterSprite(CharacterObject characterOut, string spriteName){
-        characterOut.changeSprite(spriteName);
+        characterOut.changeEmotionsSprite(spriteName);
+    }
+    public void changeOutFitSprite(CharacterObject characterOut, string spriteName){
+        characterOut.changeOutFitSprite(spriteName);
     }
 }

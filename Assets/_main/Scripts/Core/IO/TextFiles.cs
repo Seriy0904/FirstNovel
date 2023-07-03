@@ -134,6 +134,12 @@ public class TextFiles : MonoBehaviour
                     characterController.changeCharacterSprite(cahngeSpriteCharacter, arguments[1]);
                 }
                 break;
+            case "outfit":
+                if (characterController.getCharacter(arguments[0], out CharacterObject changeOutFitSprite))
+                {
+                    characterController.changeOutFitSprite(changeOutFitSprite, arguments[1]);
+                }
+                break;
         }
         if (privateReadedLines.Count<= privateCurrentLine+1)
         {
