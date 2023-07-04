@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class TextFiles : MonoBehaviour
 {
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private AnswersMainContainer answersController;
-
+    public Image backgroundObject;
     [SerializeField] private String fileName;
     private List<string> readedLines;
     private List<string> readedAdvancedLines;

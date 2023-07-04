@@ -1930,6 +1930,7 @@ MonoBehaviour:
   dialogueSystem: {fileID: 1691564339}
   characterController: {fileID: 1995173159}
   answersController: {fileID: 343404456}
+  backgroundObject: {fileID: 0}
   fileName: testingFiles.txt
 --- !u!1 &1277509950
 GameObject:
