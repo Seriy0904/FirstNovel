@@ -9,7 +9,8 @@ public class TextFiles : MonoBehaviour
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private AnswersMainContainer answersController;
-    public Image backgroundObject;
+    [SerializeField] public BackgroundController backController;
+
     [SerializeField] private String fileName;
     private List<string> readedLines;
     private List<string> readedAdvancedLines;
@@ -141,6 +142,10 @@ public class TextFiles : MonoBehaviour
                     characterController.changeOutFitSprite(changeOutFitSprite, arguments[1]);
                 }
                 break;
+            case "back":
+                    backController.changeBackground(arguments[0]);
+                break;
+
         }
         if (privateReadedLines.Count<= privateCurrentLine+1)
         {
