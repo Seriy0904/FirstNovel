@@ -4,10 +4,7 @@ using UnityEngine;
 using System.IO;
 
 public class FileManager
-{   
-    public static void WriteFile(string filePath, string text){
-        System.IO.File.WriteAllText(filePath,text);
-    }
+{
     public static List<string> ReadTextFiles(string filePath, bool includeBlankLines = true)
     {
         if (!filePath.StartsWith('/'))
