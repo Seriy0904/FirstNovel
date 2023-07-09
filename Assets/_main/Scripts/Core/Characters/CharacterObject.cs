@@ -17,17 +17,24 @@ public class CharacterObject : MonoBehaviour
     [SerializeField] private Sprite suprised;
     [SerializeField] private Sprite BlueTShirt;
 
+    [SerializeField] private Image faceImage;
+    [SerializeField] private Image outFitImage;
+    [SerializeField] private Image frontHaitStyleImage;
+    [SerializeField] private Image backHairStyleImage;
+    [SerializeField] private Image bodyImage;
+
     private int characterSpeed = 250;
     private float maxAndMinPos = 5f;
     private Vector3 target = new Vector3(0.0f,0.0f,0.0f);
+    private bool fade = false;
 
     public string currentEmotion;
     public string currentOutFit;
     public string currentFrontHairStyle;
     public string currentBackHairStyle;
-
     public short relative_x;
     public short relative_y;
+
     void Start()
     {
     }
@@ -45,64 +52,60 @@ public class CharacterObject : MonoBehaviour
         target.x =Screen.width/(maxAndMinPos*2) *x;
         target.y = Screen.height/(maxAndMinPos*2) * y;
     }
+    public void fadeCharacter(){
+        fade = true;//TODO
+    }
     public void instantMoveCharacter(short x, short y){
         moveCharacter(x,y);
         transform.position = new Vector3(Screen.width/(maxAndMinPos*2)*x,Screen.height/(maxAndMinPos*2)*y,0.0f);
         target = transform.position;
     }
     public void changeEmotionsSprite(string spriteName){
-        try{
-            Image childImage = gameObject.transform.GetChild(2).GetComponent<Image>();
-        switch(spriteName){
-            case "cuteSmile":
-                childImage.sprite = cuteSmile;
-                break;
-            case "hardAngry":
-                childImage.sprite = hardAngry;
-                break;
-            case "laugh":
-                childImage.sprite = laugh;
-                break;
-            case "lightAngry":
-                childImage.sprite = lightAngry;
-                break;
-            case "normal":
-                childImage.sprite = normal;
-                break;
-            case "sad":
-                childImage.sprite = sad;
-                break;
-            case "smile":
-                childImage.sprite = smile;
-                break;
-            case "smrink":
-                childImage.sprite = smrink;
-                break;
-            case "stoneFace":
-                childImage.sprite = stoneFace;
-                break;
-            case "suprised":
-                childImage.sprite = suprised;
-                break;
-        }
-        currentEmotion = spriteName;
-        }
-        catch(UnityException e){
-
+        if(faceImage!=null){
+            switch(spriteName){
+                case "cuteSmile":
+                    faceImage.sprite = cuteSmile;
+                    break;
+                case "hardAngry":
+                    faceImage.sprite = hardAngry;
+                    break;
+                case "laugh":
+                    faceImage.sprite = laugh;
+                    break;
+                case "lightAngry":
+                    faceImage.sprite = lightAngry;
+                    break;
+                case "normal":
+                    faceImage.sprite = normal;
+                    break;
+                case "sad":
+                    faceImage.sprite = sad;
+                    break;
+                case "smile":
+                    faceImage.sprite = smile;
+                    break;
+                case "smrink":
+                    faceImage.sprite = smrink;
+                    break;
+                case "stoneFace":
+                    faceImage.sprite = stoneFace;
+                    break;
+              case "suprised":
+                    faceImage.sprite = suprised;
+                    break;
+            }
+            currentEmotion = spriteName;
         }
     }
 
     public void changeOutFitSprite(string spriteName){
-        try{
-        Image childImage2s = gameObject.transform.GetChild(4).GetComponent<Image>();
-        switch(spriteName){
-            case "BlueTShirt":
-                childImage2s.sprite = BlueTShirt;
-                break;
-            }
-            currentOutFit = spriteName;
-        }catch(UnityException e){
-
+        if(outFitImage!=null){
+            switch(spriteName){
+                case "BlueTShirt":
+                    outFitImage.sprite = BlueTShirt;
+                    break;
+                }
+                currentOutFit = spriteName;
         }
 }
 }

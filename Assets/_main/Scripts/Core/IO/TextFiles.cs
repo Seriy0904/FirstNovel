@@ -101,6 +101,9 @@ public class TextFiles : MonoBehaviour
             case "teleport":
                 characterController.moveInstantCharacter(arguments[0], short.Parse(arguments[1]) , short.Parse(arguments[2]));
                 break;
+            case "fade":
+                characterController.fadeCharacter(arguments[0]);
+                break;
             case "branch":
                 branchName = arguments[0];
                 StartCoroutine(ReadAdvanced());

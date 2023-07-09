@@ -1889,6 +1889,7 @@ MonoBehaviour:
   branchName: 
   currentLine: 0
   currentAdvancedLine: 0
+  advancedBranch: 0
 --- !u!1 &1277509950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharactersScenePath: {fileID: 1948633551}
   XiJinObject: {fileID: 5113330078735758311, guid: 82b6f26312b9fe142be57b657b64187c, type: 3}
-  MainPersonObject: {fileID: 9187421723525544166, guid: ddc770339d3d7584da2563f5e82b805b, type: 3}
+  MainPersonObject: {fileID: 6955919014753434148, guid: 2758d9030df96aa4bb9f6319c156352d, type: 3}
   RijiyObject: {fileID: 2038250074715871417, guid: f771ad6e39d2f7b4baa50481588fc66c, type: 3}
 --- !u!1 &2090257972
 GameObject:

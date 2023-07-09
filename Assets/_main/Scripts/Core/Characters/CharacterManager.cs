@@ -72,6 +72,10 @@ public class CharacterManager : MonoBehaviour
         existCharacters.TryGetValue(nickName, out CharacterObject value);
         value.instantMoveCharacter(x,y);
     }
+    public void fadeCharacter(string nickName){
+        existCharacters.TryGetValue(nickName, out CharacterObject value);
+        value.fadeCharacter();
+    }
     public void changeEmotionsSprite(string nickName,string spriteName){
         existCharacters.TryGetValue(nickName, out CharacterObject value);
         value.changeEmotionsSprite(spriteName);
