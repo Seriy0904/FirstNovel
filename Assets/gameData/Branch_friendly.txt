@@ -1,3 +1,0 @@
-//change background
-say(Рыжий| Отлично, я очень рад что ты мне расскажешь о себе)
-sprite(rijiy|cuteSmile)
