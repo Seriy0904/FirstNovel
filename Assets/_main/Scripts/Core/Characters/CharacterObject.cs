@@ -5,21 +5,29 @@ using UnityEngine;
 
 public class CharacterObject : MonoBehaviour
 {
-    [SerializeField] public Sprite cuteSmile;
-    [SerializeField] public Sprite hardAngry;
-    [SerializeField] public Sprite laugh;
-    [SerializeField] public Sprite lightAngry;
-    [SerializeField] public Sprite normal;
-    [SerializeField] public Sprite sad;
-    [SerializeField] public Sprite smile;
-    [SerializeField] public Sprite smrink;
-    [SerializeField] public Sprite stoneFace;
-    [SerializeField] public Sprite suprised;
-    [SerializeField] public Sprite BlueTShirt;
+    [SerializeField] private Sprite cuteSmile;
+    [SerializeField] private Sprite hardAngry;
+    [SerializeField] private Sprite laugh;
+    [SerializeField] private Sprite lightAngry;
+    [SerializeField] private Sprite normal;
+    [SerializeField] private Sprite sad;
+    [SerializeField] private Sprite smile;
+    [SerializeField] private Sprite smrink;
+    [SerializeField] private Sprite stoneFace;
+    [SerializeField] private Sprite suprised;
+    [SerializeField] private Sprite BlueTShirt;
 
     private int characterSpeed = 250;
     private float maxAndMinPos = 5f;
     private Vector3 target = new Vector3(0.0f,0.0f,0.0f);
+
+    public string currentEmotion;
+    public string currentOutFit;
+    public string currentFrontHairStyle;
+    public string currentBackHairStyle;
+
+    public short relative_x;
+    public short relative_y;
     void Start()
     {
     }
@@ -32,15 +40,19 @@ public class CharacterObject : MonoBehaviour
         }
     }
     public void moveCharacter(short x, short y){
+        relative_x = x;
+        relative_y = y;
         target.x =Screen.width/(maxAndMinPos*2) *x;
         target.y = Screen.height/(maxAndMinPos*2) * y;
     }
     public void instantMoveCharacter(short x, short y){
+        moveCharacter(x,y);
         transform.position = new Vector3(Screen.width/(maxAndMinPos*2)*x,Screen.height/(maxAndMinPos*2)*y,0.0f);
         target = transform.position;
     }
     public void changeEmotionsSprite(string spriteName){
-        Image childImage = gameObject.transform.GetChild(2).GetComponent<Image>();
+        try{
+            Image childImage = gameObject.transform.GetChild(2).GetComponent<Image>();
         switch(spriteName){
             case "cuteSmile":
                 childImage.sprite = cuteSmile;
@@ -72,20 +84,25 @@ public class CharacterObject : MonoBehaviour
             case "suprised":
                 childImage.sprite = suprised;
                 break;
-        }}
+        }
+        currentEmotion = spriteName;
+        }
+        catch(UnityException e){
+
+        }
+    }
 
     public void changeOutFitSprite(string spriteName){
+        try{
         Image childImage2s = gameObject.transform.GetChild(4).GetComponent<Image>();
         switch(spriteName){
             case "BlueTShirt":
-            childImage2s.sprite = BlueTShirt;
-            break;
-
+                childImage2s.sprite = BlueTShirt;
+                break;
             }
+            currentOutFit = spriteName;
+        }catch(UnityException e){
 
-            
-        
         }
 }
-
-
+}

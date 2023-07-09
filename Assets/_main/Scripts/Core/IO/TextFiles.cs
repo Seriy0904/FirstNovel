@@ -9,16 +9,16 @@ public class TextFiles : MonoBehaviour
     [SerializeField] private DialogueSystem dialogueSystem;
     [SerializeField] private CharacterController characterController;
     [SerializeField] private AnswersMainContainer answersController;
-    [SerializeField] public BackgroundController backController;
+    [SerializeField] private BackgroundController backController;
 
-    [SerializeField] private String fileName;
+    [SerializeField] public String fileName;
+    public string branchName;
     private List<string> readedLines;
     private List<string> readedAdvancedLines;
-    private int currentLine = 0;
-    private int currentAdvancedLine = 0;
+    public int currentLine = 0;
+    public int currentAdvancedLine = 0;
     private bool advancedBranch = false;
     private bool skipIsWork = true;
-    private string branchName;
     // Start is called before the first frame update
     void Start()
     {
@@ -133,7 +133,7 @@ public class TextFiles : MonoBehaviour
             case "sprite":
                 if (characterController.getCharacter(arguments[0], out CharacterObject cahngeSpriteCharacter))
                 {
-                    characterController.changeCharacterSprite(cahngeSpriteCharacter, arguments[1]);
+                    characterController.changeEmotionsSprite(cahngeSpriteCharacter, arguments[1]);
                 }
                 break;
             case "outfit":
@@ -150,62 +150,19 @@ public class TextFiles : MonoBehaviour
         if (privateReadedLines.Count<= privateCurrentLine+1)
         {
             advancedBranch = false;
-            privateCurrentLine = 0;
-            return;
-        }
-        privateCurrentLine += 1;
-        if (Convert.ToBoolean(currentLineParsed[2].ToLower()))
-        {
-            if(advancedBranch){
-                readAdvancedLine();
-            }else{
-                nextLineRun();
-            }
-        }
-    }
-    private void readAdvancedLine(){
-        string[] currentLineParsed = readedAdvancedLines[currentAdvancedLine].Split(new string[] { "\\(", "\\)" }, StringSplitOptions.None);
-        string currentLineCommand = currentLineParsed[0];
-        string[] arguments = currentLineParsed[1].Split("\\,");
-        switch (currentLineCommand) {
-            case "say":
-                dialogueSystem.DialogueNametSet(arguments[0]);
-                dialogueSystem.DialogueTextSet(arguments[1]);
-                break;
-            case "spawn":
-            {
-                characterController.spawnCharacter(arguments[0]);
-                break;
-            }
-            case "move":
-                if (characterController.getCharacter(arguments[0], out CharacterObject selectedCharacter))
-                {
-                    characterController.moveCharacter(selectedCharacter, short.Parse(arguments[1]) , short.Parse(arguments[2]));
-                }
-                break;
-            case "answers":
-                skipIsWork = false;
-                if(arguments.Length%2==0)
-                {
-                    for (int i=0; i<arguments.Length; i+=2){
-                        answersController.addVariant(arguments[i], arguments[i+1]);
-                        if(i!=arguments.Length-2){
-                            answersController.addSeparator();
-                        }
-                    }
-                }
-                break;
-        }
-        if (readedAdvancedLines.Count<= currentAdvancedLine+1)
-        {
-            advancedBranch = false;
             currentAdvancedLine = 0;
+            branchName = "";
             return;
+        }else{
+            privateCurrentLine += 1;
         }
-        currentAdvancedLine += 1;
         if (Convert.ToBoolean(currentLineParsed[2].ToLower()))
         {
-            readAdvancedLine();
+            // if(advancedBranch){
+            //     readAdvancedLine();
+            // }else{
+                nextLineRun();
+            // }
         }
     }
 }

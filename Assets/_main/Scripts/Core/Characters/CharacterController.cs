@@ -21,6 +21,15 @@ public class CharacterController : MonoBehaviour
     {
 
     }
+    public Dictionary<string, CharacterObject> getCharacters(){
+        return existCharacters;
+    }
+    public void clearCharacters(){
+        foreach(var keyVal in existCharacters){
+            Destroy(keyVal.Value.gameObject);
+        }
+        existCharacters.Clear();
+    }
     //spawn character through nick name with switch case
     public void spawnCharacter(string nickName)
     {
@@ -75,7 +84,7 @@ public class CharacterController : MonoBehaviour
     public void moveInstantCharacter(CharacterObject characterOut, short x, short y){
         characterOut.instantMoveCharacter(x,y);
     }
-    public void changeCharacterSprite(CharacterObject characterOut, string spriteName){
+    public void changeEmotionsSprite(CharacterObject characterOut, string spriteName){
         characterOut.changeEmotionsSprite(spriteName);
     }
     public void changeOutFitSprite(CharacterObject characterOut, string spriteName){
