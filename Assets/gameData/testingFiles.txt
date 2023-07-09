@@ -1,6 +1,13 @@
-spawn\(xi\)False
-move\(xi\,-5\,-5\)
-say\(Chris\, Мы смогли сделать такую хуйню, ура! Молодцы\)False
-branch\(first_branch.txt\)
-say\(Chris\, после бренча робит\)False
-say\(Chris\, пtestets\)False
+spawn(xi)False
+move(xi|-5|-5)
+say(Chris| Мы смогли сделать такую хуйню, ура! Молодцы)False
+branch(first_branch.txt)
+say(Chris|после бренча робит)False
+spawn(main)True
+outfit(main|BlueTShirt)
+teleport(main|2|0)
+sprite(main|sad)
+sprite(main|suprised)
+back(background1)
+answers(Первая ветка|answer1.txt|Вторая ветка|answer2.txt)
+sprite(main|hardAngry)
