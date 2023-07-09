@@ -2,7 +2,7 @@ spawn(xi)False
 move(xi|-5|-5)
 say(Chris| Мы смогли сделать такую хуйню, ура! Молодцы)False
 branch(first_branch.txt)
-say(Chris| после бренча робит)False
+say(Chris|после бренча робит)False
 spawn(main)True
 outfit(main|BlueTShirt)
 teleport(main|2|0)

@@ -7,8 +7,10 @@ public class BackgroundController : MonoBehaviour
 {
     [SerializeField] private Sprite background1;
 
-    public string currentBackground;
-    
+    private string currentBackground;
+    public string getCurrentBackground(){
+        return currentBackground;
+    }
     public void changeBackground(string backgroundName){
         Image childImage = gameObject.GetComponentInChildren<Image>();
         switch (backgroundName){

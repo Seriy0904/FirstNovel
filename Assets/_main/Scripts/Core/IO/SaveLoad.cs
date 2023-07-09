@@ -27,8 +27,11 @@ public class SaveLoad : MonoBehaviour
             backgroundController.changeBackground(currentSceneState.background);
             textFiles.fileName = currentSceneState.mainBranch.path;
             textFiles.currentLine = currentSceneState.mainBranch.line;
-            textFiles.branchName = currentSceneState.advancedBranch.path;
-            textFiles.currentAdvancedLine = currentSceneState.advancedBranch.line;
+            if(currentSceneState.advancedBranch.path!=""){
+                textFiles.advancedBranch = true;
+                textFiles.branchName = currentSceneState.advancedBranch.path;
+                textFiles.currentAdvancedLine = currentSceneState.advancedBranch.line;
+            }
             characterController.clearCharacters();
             foreach (CharacterStates charState in currentSceneState.chacracters){
                 characterController.spawnCharacter(charState.name);
@@ -41,11 +44,12 @@ public class SaveLoad : MonoBehaviour
                 public string backHairStye;
                 */
             }
+            textFiles.nextLineRun();
         }
     }
     public void SaveButton(){
         SceneState currentSceneState = new SceneState();
-        currentSceneState.background = backgroundController.currentBackground;
+        currentSceneState.background = backgroundController.getCurrentBackground();
         Dictionary<string, CharacterObject> currentCharacters = characterController.getCharacters();
         foreach (KeyValuePair<string, CharacterObject> entry in currentCharacters){
             currentSceneState.chacracters.Add(new CharacterStates(
@@ -57,8 +61,10 @@ public class SaveLoad : MonoBehaviour
                 entry.Value.currentFrontHairStyle,
                 entry.Value.currentBackHairStyle));
         }
-        currentSceneState.mainBranch = new BranchState(textFiles.fileName,textFiles.currentLine);
-        currentSceneState.advancedBranch = new BranchState(textFiles.branchName,textFiles.currentAdvancedLine);
+        currentSceneState.mainBranch = new BranchState(textFiles.fileName,textFiles.currentLine-1);
+        if(textFiles.advancedBranch){
+            currentSceneState.advancedBranch = new BranchState(textFiles.branchName,textFiles.currentAdvancedLine-1);
+        }
         string jsonState = JsonUtility.ToJson(currentSceneState);
         FileManager.WriteFile(savingPath, jsonState);
     }
@@ -95,8 +101,8 @@ public class SaveLoad : MonoBehaviour
     [System.Serializable]
     public class BranchState
     {
-        public string path;
-        public int line;
+        public string path="";
+        public int line=0;
         public BranchState(string path, int line){
             this.path = path;
             this.line = line;

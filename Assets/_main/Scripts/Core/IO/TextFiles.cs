@@ -14,10 +14,10 @@ public class TextFiles : MonoBehaviour
     [SerializeField] public String fileName;
     public string branchName;
     private List<string> readedLines;
-    private List<string> readedAdvancedLines;
+    private List<string> readedAdvancedLines = new List<string>();
     public int currentLine = 0;
     public int currentAdvancedLine = 0;
-    private bool advancedBranch = false;
+    public bool advancedBranch = false;
     private bool skipIsWork = true;
     // Start is called before the first frame update
     void Start()
@@ -53,6 +53,10 @@ public class TextFiles : MonoBehaviour
     }
     private void readMainLine()
     {
+        if (readedAdvancedLines.Count< currentAdvancedLine+1)
+        {
+            advancedBranch = false;
+        }
         ref int privateCurrentLine = ref currentLine;
         List<string> privateReadedLines = readedLines;
         if(advancedBranch){
@@ -77,7 +81,7 @@ public class TextFiles : MonoBehaviour
         if(firstBracket>0&&secondBracket>0){
             currentLineParsed = new string[]{privateReadedLines[privateCurrentLine].Substring(0,firstBracket),
             privateReadedLines[privateCurrentLine].Substring(firstBracket+1,secondBracket-firstBracket-1),
-            secondBracket==readedLines[privateCurrentLine].Length-1 ? "False" : privateReadedLines[privateCurrentLine].Substring(secondBracket+1)};
+            secondBracket==privateReadedLines[privateCurrentLine].Length-1 ? "False" : privateReadedLines[privateCurrentLine].Substring(secondBracket+1)};
         }else{
             currentLineParsed = new string[]{"NULL", "NULL","False"};
         }
@@ -108,6 +112,9 @@ public class TextFiles : MonoBehaviour
                 StartCoroutine(ReadAdvanced());
                 currentAdvancedLine = 0;
                 advancedBranch = true;
+                privateCurrentLine += 1;
+                nextLineRun();
+                return;
                 break;
             case "change_branch":
                 int newBranchLine = 0;
@@ -147,15 +154,7 @@ public class TextFiles : MonoBehaviour
                 break;
 
         }
-        if (privateReadedLines.Count<= privateCurrentLine+1)
-        {
-            advancedBranch = false;
-            currentAdvancedLine = 0;
-            branchName = "";
-            return;
-        }else{
-            privateCurrentLine += 1;
-        }
+        privateCurrentLine += 1;
         if (Convert.ToBoolean(currentLineParsed[2].ToLower()))
         {
             // if(advancedBranch){
