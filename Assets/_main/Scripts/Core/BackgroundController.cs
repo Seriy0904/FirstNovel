@@ -5,18 +5,15 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
-    [SerializeField] private Sprite background1;
-
-    public string currentBackground;
+    [SerializeField] public Sprite background1;
     
     public void changeBackground(string backgroundName){
         Image childImage = gameObject.GetComponentInChildren<Image>();
-        switch (backgroundName){
-            case "background1":
-                childImage.sprite=background1;
-                break;
-        }
-        currentBackground = backgroundName;
+    switch (backgroundName){
+        case "background1":
+            childImage.sprite=background1;
+            break;
+            }
     }
     // Start is called before the first frame update
     void Start()
