@@ -6,7 +6,7 @@ using UnityEngine;
 public class SaveLoad : MonoBehaviour
 {
     [SerializeField] private TextFiles textFiles;
-    [SerializeField] private CharacterController characterController;
+    [SerializeField] private CharacterManager characterController;
     [SerializeField] private BackgroundController backgroundController;
     private string savingPath;
     // Start is called before the first frame update
@@ -35,10 +35,9 @@ public class SaveLoad : MonoBehaviour
             characterController.clearCharacters();
             foreach (CharacterStates charState in currentSceneState.chacracters){
                 characterController.spawnCharacter(charState.name);
-                characterController.getCharacter(charState.name, out CharacterObject tempChar);
-                characterController.moveInstantCharacter(tempChar,charState.x_pos,charState.y_pos);
-                characterController.changeEmotionsSprite(tempChar,charState.face );
-                characterController.changeOutFitSprite(tempChar,charState.outFit );
+                characterController.moveInstantCharacter(charState.name,charState.x_pos,charState.y_pos);
+                characterController.changeEmotionsSprite(charState.name,charState.face );
+                characterController.changeOutFitSprite(charState.name,charState.outFit );
                 /*
                 public string frontHairStye;
                 public string backHairStye;
@@ -60,7 +59,7 @@ public class SaveLoad : MonoBehaviour
                 entry.Value.currentEmotion,
                 entry.Value.currentFrontHairStyle,
                 entry.Value.currentBackHairStyle));
-        }
+        } 
         currentSceneState.mainBranch = new BranchState(textFiles.fileName,textFiles.currentLine-1);
         if(textFiles.advancedBranch){
             currentSceneState.advancedBranch = new BranchState(textFiles.branchName,textFiles.currentAdvancedLine-1);

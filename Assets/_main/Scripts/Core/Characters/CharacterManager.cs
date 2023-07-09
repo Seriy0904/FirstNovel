@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterManager : MonoBehaviour
 {
     public GameObject CharactersScenePath;
     public CharacterObject XiJinObject;
@@ -63,31 +63,21 @@ public class CharacterController : MonoBehaviour
         tempChar.transform.SetParent(CharactersScenePath.transform);
         existCharacters.TryAdd(nickName, tempChar);
     }
-    //get charatcer from hash map, if it doesn't exist return false
-    public bool getCharacter(string nickName, out CharacterObject characterOut)
+    public void moveCharacter(string nickName, short x, short y)
     {
-        if(existCharacters.TryGetValue(nickName, out CharacterObject value))
-        {
-            characterOut = value;
-            return true ;
-        }
-        else
-        {
-            characterOut = null;
-            return false;
-        }
+        existCharacters.TryGetValue(nickName, out CharacterObject value);
+        value.moveCharacter(x,y);
     }
-    public void moveCharacter(CharacterObject characterOut, short x, short y)
-    {
-        characterOut.moveCharacter(x,y);
+    public void moveInstantCharacter(string nickName,short x, short y){
+        existCharacters.TryGetValue(nickName, out CharacterObject value);
+        value.instantMoveCharacter(x,y);
     }
-    public void moveInstantCharacter(CharacterObject characterOut, short x, short y){
-        characterOut.instantMoveCharacter(x,y);
+    public void changeEmotionsSprite(string nickName,string spriteName){
+        existCharacters.TryGetValue(nickName, out CharacterObject value);
+        value.changeEmotionsSprite(spriteName);
     }
-    public void changeEmotionsSprite(CharacterObject characterOut, string spriteName){
-        characterOut.changeEmotionsSprite(spriteName);
-    }
-    public void changeOutFitSprite(CharacterObject characterOut, string spriteName){
-        characterOut.changeOutFitSprite(spriteName);
+    public void changeOutFitSprite(string nickName,string spriteName){
+        existCharacters.TryGetValue(nickName, out CharacterObject value);
+        value.changeOutFitSprite(spriteName);
     }
 }

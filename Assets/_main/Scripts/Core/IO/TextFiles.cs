@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TextFiles : MonoBehaviour
 {
     [SerializeField] private DialogueSystem dialogueSystem;
-    [SerializeField] private CharacterController characterController;
+    [SerializeField] private CharacterManager characterController;
     [SerializeField] private AnswersMainContainer answersController;
     [SerializeField] private BackgroundController backController;
 
@@ -96,16 +96,10 @@ public class TextFiles : MonoBehaviour
                 characterController.spawnCharacter(arguments[0]);
                 break;
             case "move":
-                if (characterController.getCharacter(arguments[0], out CharacterObject smoothMovingCharacter))
-                {
-                    characterController.moveCharacter(smoothMovingCharacter, short.Parse(arguments[1]) , short.Parse(arguments[2]));
-                }
+                    characterController.moveCharacter(arguments[0], short.Parse(arguments[1]) , short.Parse(arguments[2]));
                 break;
             case "teleport":
-                if (characterController.getCharacter(arguments[0], out CharacterObject instantMovingCharacter))
-                {
-                    characterController.moveInstantCharacter(instantMovingCharacter, short.Parse(arguments[1]) , short.Parse(arguments[2]));
-                }
+                characterController.moveInstantCharacter(arguments[0], short.Parse(arguments[1]) , short.Parse(arguments[2]));
                 break;
             case "branch":
                 branchName = arguments[0];
@@ -115,7 +109,6 @@ public class TextFiles : MonoBehaviour
                 privateCurrentLine += 1;
                 nextLineRun();
                 return;
-                break;
             case "change_branch":
                 int newBranchLine = 0;
                 if(arguments.Length>1){
@@ -138,16 +131,10 @@ public class TextFiles : MonoBehaviour
                 }
                 break;
             case "sprite":
-                if (characterController.getCharacter(arguments[0], out CharacterObject cahngeSpriteCharacter))
-                {
-                    characterController.changeEmotionsSprite(cahngeSpriteCharacter, arguments[1]);
-                }
+                characterController.changeEmotionsSprite(arguments[0], arguments[1]);
                 break;
             case "outfit":
-                if (characterController.getCharacter(arguments[0], out CharacterObject changeOutFitSprite))
-                {
-                    characterController.changeOutFitSprite(changeOutFitSprite, arguments[1]);
-                }
+                characterController.changeOutFitSprite(arguments[0], arguments[1]);
                 break;
             case "back":
                     backController.changeBackground(arguments[0]);
